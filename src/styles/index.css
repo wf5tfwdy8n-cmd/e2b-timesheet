@@ -2,4 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light dark; }
+/* Thème clair par défaut */
+body {
+  background-color: #ffffff;
+  color: #1e293b; /* slate-800 */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+table, input, textarea, select, button { color: inherit; }
+
+/* Thème sombre si l’iPhone est en mode sombre */
+@media (prefers-color-scheme: dark) {
+  body { background-color: #0f172a; color: #f8fafc; } /* slate-900 / slate-50 */
+  table, input, textarea, select, button {
+    background-color: #1e293b !important; /* slate-800 */
+    color: #f8fafc !important;
+    border-color: #334155 !important;     /* slate-700 */
+  }
+  th { color: #e2e8f0 !important; }       /* slate-200 */
+  td { border-color: #334155; }
+  a  { color: #60a5fa; }                   /* bleu accent */
+  .card { background-color: #1e293b !important; }
+}
+
+/* Petits conforts */
+a { text-decoration: none; }
+button { cursor: pointer; transition: background-color .2s; }
+button:hover { opacity: .9; }
